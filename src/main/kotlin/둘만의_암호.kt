@@ -33,13 +33,13 @@ s	skip	index	result
 fun solution(s: String, skip: String, index: Int): String {
     var answer: String = ""
 
-    val initList = "abcdefghijklmnopqrstuvwxyz".toMutableList()
-
-    skip.forEach {
-        if(initList.contains(it)){
-            initList.remove(it)
-        }
-    }
+    // skip 에서 it 가 존재하지 않는것만 필터링
+    val initList = ('a'..'z').filter { it !in skip }
+//    skip.forEach {
+//        if(initList.contains(it)){
+//            initList.remove(it)
+//        }
+//    }
 
     s.forEach {
         val v1 = (initList.indexOf(it) + index) % initList.size
@@ -49,8 +49,21 @@ fun solution(s: String, skip: String, index: Int): String {
     return answer
 }
 
+// 코틀린 정석 풀이인듯..
+fun solution1(s: String, skip: String, index: Int): String {
+    var answer: String = ""
+    val skipped = skip.map { it.toChar() }
+    val alphabet = ('a'..'z').filter { it !in skipped }
+
+    s.forEach {
+        val i = (alphabet.indexOf(it) + index) % alphabet.size
+        answer += alphabet[i]
+    }
+    return answer
+}
+
 fun main(args: Array<String>) {
-    val result = solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
-//    val result = solution("aukks", "wbqd", 5)
+//    val result = solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
+    val result = solution("aukks", "wbqd", 5)
     println(result.toList())
 }

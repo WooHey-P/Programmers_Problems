@@ -23,35 +23,34 @@ s	skip	index	result
 입출력 예 설명
 입출력 예 #1
 본문 내용과 일치합니다.
+
+
+ a    b    c    d  ... x    y    z
+97   98   99   100 .. 120  121  122  (123-26)
  */
+
 
 fun solution(s: String, skip: String, index: Int): String {
     var answer: String = ""
 
-    var sList = s.toList()
-    var skipList = skip.toList()
-    var tempList: ArrayList<String>
+    val initList = "abcdefghijklmnopqrstuvwxyz".toMutableList()
 
-    s.forEachIndexed { i, ch1 ->
-        var cnt = 0
-        var target = ch1.toInt()
-
-        while(cnt < index){
-            if (skipList.get(i) != sList[cnt]){
-                cnt++
-            }
+    skip.forEach {
+        if(initList.contains(it)){
+            initList.remove(it)
         }
-//        target += ch1     // err!!
-
-        // z 넘어갔으면 a 부터..
-
     }
 
+    s.forEach {
+        val v1 = (initList.indexOf(it) + index) % initList.size
+        answer += initList[v1]
+    }
 
     return answer
 }
 
 fun main(args: Array<String>) {
-    val result = solution("aukks", "wbqd", 5)
+    val result = solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
+//    val result = solution("aukks", "wbqd", 5)
     println(result.toList())
 }

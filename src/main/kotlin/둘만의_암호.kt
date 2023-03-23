@@ -64,6 +64,6 @@ fun solution1(s: String, skip: String, index: Int): String {
 
 fun main(args: Array<String>) {
 //    val result = solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
-    val result = solution("aukks", "wbqd", 5)
+    val result = solution(s="aukks", skip="wbqd", index=5)
     println(result.toList())
 }

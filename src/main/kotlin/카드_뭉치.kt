@@ -60,9 +60,9 @@ fun solution(cards1: Array<String>, cards2: Array<String>, goal: Array<String>):
 
 fun main(args: Array<String>) {
     var result = solution(
-        arrayOf("i", "drink", "water"),
-        arrayOf("want", "to"),
-        arrayOf("i", "want", "to", "drink", "water"))
+        cards1= arrayOf("i", "drink", "water"),
+        cards2= arrayOf("want", "to"),
+        goal= arrayOf("i", "want", "to", "drink", "water"))
     println(result)
 }
 

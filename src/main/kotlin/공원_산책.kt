@@ -44,7 +44,7 @@ fun solution(park: Array<String>, routes: Array<String>): IntArray {
             "W" -> {
                 val mv = sw - n
                 if(mv < 0){ return@forEach }
-                if(park[sh].substring(0, sw).contains("X")){ return@forEach }
+                if(park[sh].substring(mv, sw).contains("X")){ return@forEach }
                 sw -= n
             }
             "S" -> {
@@ -57,7 +57,7 @@ fun solution(park: Array<String>, routes: Array<String>): IntArray {
             "N" -> {
                 val mv = sh - n
                 if (mv < 0) { return@forEach }
-                val v1 = park.map { str -> str[sw] }.toTypedArray().sliceArray(0 until sh)
+                val v1 = park.map { str -> str[sw] }.toTypedArray().sliceArray(mv until sh)
                 if (v1.contains('X')){ return@forEach }
                 sh -= n
             }
@@ -69,14 +69,14 @@ fun solution(park: Array<String>, routes: Array<String>): IntArray {
 
 
 fun main() {
-    println(arrayOf("123","456","789").map{ it[2] }.toTypedArray().sliceArray(1 until (1+1)+1).contains('6'))
-//    println(arrayOf("123","456","789").map{ it[2] }.toTypedArray().sliceArray(1 until (1+1)+1).map { print(it) })
 
     solution(park = arrayOf("SOO","OOO","OOO"), routes = arrayOf("E 2","S 2","W 1")).map { print("$it,") } // 2,1
     println()
     solution(park = arrayOf("SOO","OXX","OOO"), routes = arrayOf("E 2","S 2","W 1")).map { print("$it,") } // 0,1
     println()
     solution(park = arrayOf("OSOOOOOOXOXXOOX", "OOOXXOOOXOOXXOO", "XOOXXOOOOOXOOXO", "OOOOXOOOXOXOOOO"), routes = arrayOf("E 6", "S 4", "W 2","S 2","N 1","E 2")).map { print("$it,") }  // 0,0
+    println()
+    solution(park = arrayOf("XXOO", "OOXX", "XSOX", "OXOX"), routes = arrayOf("S 2", "E 3", "N 1")).map { print("$it,") } // 0,1
     println()
 
     /**
@@ -85,7 +85,5 @@ fun main() {
      * XOOXXOOOOOXOOXO
      * OOOOXOOOXOXOOOO
      * */
-    solution(park = arrayOf("XOX","OSO","XXO"), routes = arrayOf("E 1","W 1","S 1","N 1","S 1","E 2","W 2","S 2", "N 2")).map { print("$it,") } // 2,1
-    println()
 
 }

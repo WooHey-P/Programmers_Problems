@@ -1,3 +1,5 @@
+package level1
+
 /**
  * 문제 설명
 두 문자열 s와 skip, 그리고 자연수 index 가 주어질 때, 다음 규칙에 따라 문자열을 만들려 합니다. 암호의 규칙은 다음과 같습니다.
@@ -9,7 +11,7 @@ skip 에 있는 알파벳은 제외하고 건너뜁니다.
 따라서 'b', 'd'를 제외하고 'a'에서 5만큼 뒤에 있는 알파벳은 [c, e, f, g, h] 순서에 의해 'h'가 됩니다.
 나머지 "ukks" 또한 위 규칙대로 바꾸면 "appy"가 되며 결과는 "happy"가 됩니다.
 
-두 문자열 s와 skip, 그리고 자연수 index 가 매개변수로 주어질 때 위 규칙대로 s를 변환한 결과를 return 하도록 solution 함수를 완성해주세요.
+두 문자열 s와 skip, 그리고 자연수 index 가 매개변수로 주어질 때 위 규칙대로 s를 변환한 결과를 return 하도록 level1.solution 함수를 완성해주세요.
 
 제한사항
 5 ≤ s의 길이 ≤ 50
@@ -63,7 +65,7 @@ fun solution1(s: String, skip: String, index: Int): String {
 }
 
 fun main(args: Array<String>) {
-//    val result = solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
+//    val result = level1.solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
     val result = solution(s="aukks", skip="wbqd", index=5)
     println(result.toList())
 }

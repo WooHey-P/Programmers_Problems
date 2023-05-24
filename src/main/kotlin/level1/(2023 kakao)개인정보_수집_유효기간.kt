@@ -4,12 +4,12 @@ package level1
  * https://school.programmers.co.kr/learn/courses/30/lessons/150370?language=kotlin
  * */
 
-data class DT(
+private data class DT(
     var y: Int,
     var m: Int,
     var d: Int
 )
-fun String.addDays(days: Int): String {
+private fun String.addDays(days: Int): String {
     val arr = this.split(".")
     val dt = DT(arr[0].toInt(), arr[1].toInt(), arr[2].toInt())
 
@@ -27,7 +27,7 @@ fun String.addDays(days: Int): String {
     }
     return "${dt.y}.${dt.m}.${dt.d}"
 }
-fun String.isBefore(dt: String): Boolean {
+private fun String.isBefore(dt: String): Boolean {
     val v1 = this.split(".")
     val v2 = dt.split(".")
 
@@ -43,7 +43,7 @@ fun String.isBefore(dt: String): Boolean {
     return v1[2].toInt() < v2[2].toInt()
 }
 
-fun solution(today: String, terms: Array<String>, privacies: Array<String>): IntArray {
+private fun solution(today: String, terms: Array<String>, privacies: Array<String>): IntArray {
     var answer: IntArray = intArrayOf()
 
     // 약관 종류
@@ -67,7 +67,7 @@ fun solution(today: String, terms: Array<String>, privacies: Array<String>): Int
     return answer
 }
 
-fun main() {
+private fun main() {
     val td = "2022.02.28"
     val agreedt = "2020.01.28"
     val mn = 23
@@ -96,7 +96,7 @@ fun main() {
     println()
 }
 
-fun solution2(today: String, terms: Array<String>, privacies: Array<String>) =
+private fun solution2(today: String, terms: Array<String>, privacies: Array<String>) =
     privacies.indices.filter {
         privacies[it]
             .split(" ").first()     // 날짜만

@@ -32,7 +32,7 @@ s	skip	index	result
  */
 
 
-fun solution(s: String, skip: String, index: Int): String {
+private fun solution(s: String, skip: String, index: Int): String {
     var answer: String = ""
 
     // skip 에서 it 가 존재하지 않는것만 필터링
@@ -52,7 +52,7 @@ fun solution(s: String, skip: String, index: Int): String {
 }
 
 // 코틀린 정석 풀이인듯..
-fun solution1(s: String, skip: String, index: Int): String {
+private fun solution1(s: String, skip: String, index: Int): String {
     var answer: String = ""
     val skipped = skip.map { it.toChar() }
     val alphabet = ('a'..'z').filter { it !in skipped }
@@ -64,7 +64,7 @@ fun solution1(s: String, skip: String, index: Int): String {
     return answer
 }
 
-fun main(args: Array<String>) {
+private fun main(args: Array<String>) {
 //    val result = level1.solution("aczzuvmoijkrgectutuxzaza", "bdhlqwy", 20)
     val result = solution(s="aukks", skip="wbqd", index=5)
     println(result.toList())

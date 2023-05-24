@@ -41,7 +41,7 @@ cards1	cards2	goal	result
 cards1에서 "i"를 사용하고 cards2에서 "want"와 "to"를 사용하여 "i want to"까지는 만들 수 있지만 "water"가 "drink"보다 먼저 사용되어야 하기 때문에 해당 문장을 완성시킬 수 없습니다. 따라서 "No"를 반환합니다.
  */
 
-fun solution(cards1: Array<String>, cards2: Array<String>, goal: Array<String>): String {
+private fun solution(cards1: Array<String>, cards2: Array<String>, goal: Array<String>): String {
     var answer: String = "YES"
 
     var l1 = cards1.toMutableList()
@@ -60,7 +60,7 @@ fun solution(cards1: Array<String>, cards2: Array<String>, goal: Array<String>):
     return answer
 }
 
-fun main(args: Array<String>) {
+private fun main(args: Array<String>) {
     var result = solution(
         cards1= arrayOf("i", "drink", "water"),
         cards2= arrayOf("want", "to"),

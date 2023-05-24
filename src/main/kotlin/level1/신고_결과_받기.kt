@@ -3,7 +3,7 @@ package level1
 /**
  * https://school.programmers.co.kr/learn/courses/30/lessons/92334
  */
-fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
+private fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
     var answer: IntArray = intArrayOf()
 
     // 신고 결과를 distinct 처리 후 저장
@@ -23,7 +23,7 @@ fun solution(id_list: Array<String>, report: Array<String>, k: Int): IntArray {
 }
 
 
-fun main() {
+private fun main() {
     // [2,1,1,0]
     solution(
         id_list = arrayOf("muzi", "frodo", "apeach", "neo"),
@@ -40,7 +40,7 @@ fun main() {
 /**
  * 프로그래머스의 가장 인기있는 코드...
  * */
-fun solution2(id_list: Array<String>, report: Array<String>, k: Int): IntArray =
+private fun solution2(id_list: Array<String>, report: Array<String>, k: Int): IntArray =
     report.map { it.split(" ") }
         .groupBy { it[1] }
         .asSequence()

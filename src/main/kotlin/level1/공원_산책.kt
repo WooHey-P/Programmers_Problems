@@ -2,7 +2,7 @@ package level1
 /**
  * https://school.programmers.co.kr/learn/courses/30/lessons/172928
  * */
-fun solution(park: Array<String>, routes: Array<String>): IntArray {
+private fun solution(park: Array<String>, routes: Array<String>): IntArray {
     var answer: IntArray = intArrayOf()
 
     // 시작 위치
@@ -68,7 +68,7 @@ fun solution(park: Array<String>, routes: Array<String>): IntArray {
 }
 
 
-fun main() {
+private fun main() {
 
     solution(park = arrayOf("SOO","OOO","OOO"), routes = arrayOf("E 2","S 2","W 1")).map { print("$it,") } // 2,1
     println()

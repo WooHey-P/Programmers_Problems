@@ -1,10 +1,12 @@
 package level1
 
-import java.util.Dictionary
-
 /**
  * https://school.programmers.co.kr/learn/courses/30/lessons/92341
  * */
+data class CarFees(
+    val type: String,
+    var fee: Int
+)
 
 private fun solution(fees: IntArray, records: Array<String>): IntArray {
     var answer: IntArray = intArrayOf()
@@ -15,16 +17,29 @@ private fun solution(fees: IntArray, records: Array<String>): IntArray {
     val unitTime = fees[2]
     val unitFee = fees[3]
 
-    // 차량 dictionary
-    var dicCars: Dictionary<String, Int>
-    // 시각, 차량번호, 내역(IN, OUT)
-    records.forEach {
+    val v1 = records
+        .map { it.split(" ") }
+        .groupBy { it[1] }
+        .map { it.value }
+        .run {
+            map {
+                // it -> 각 차량별, 각 요소별
+            }
+        }.toIntArray()
 
-    }
+    val carList = records
+        .map { it.split(" ") }  // 각 요소로 나눠서 map 으로
+        .groupBy { it[1] }      // 차량 번호별로 묶음
+        .asSequence()
+        .map { it.value }
+        .toMutableList()
+        .run {
+            map {  }
+        }.
 
-    return answer
+
+        return answer
 }
-
 
 private fun main() {
     val fees1 = intArrayOf(180, 5000, 10, 600)

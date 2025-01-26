@@ -25,7 +25,7 @@ private fun solution(fees: IntArray, records: Array<String>): IntArray {
             map {
                 // it -> 각 차량별, 각 요소별
             }
-        }.toIntArray()
+        }.toList()
 
     val carList = records
         .map { it.split(" ") }  // 각 요소로 나눠서 map 으로
@@ -35,7 +35,7 @@ private fun solution(fees: IntArray, records: Array<String>): IntArray {
         .toMutableList()
         .run {
             map {  }
-        }.
+        }
 
 
         return answer

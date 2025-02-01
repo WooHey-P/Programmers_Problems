@@ -50,49 +50,48 @@ package level1
  *   - 10초 후 이동 (최대 영상 종료 시점)
  *   - 오프닝 건너뛰기(현재 재생 위치가 오프닝 구간 사이일 경우, 오프닝 끝나는 위치로 이동)
  */
-private class Solution {
-    /**
-     * @param video_len 동영상 길이 (예: mm:ss)
-     * @param pos 기능 수행 직전 재생 위치 (예: mm:ss)
-     * @param op_start 오프닝 시작 시간 (예: mm:ss)
-     * @param op_end 오프닝 종료 시간 (예: mm:ss)
-     * @param commands 사용자 입력 목록 (prev, next)
-     */
-    fun solution(video_len: String, pos: String, op_start: String, op_end: String, commands: Array<String>): String {
-        var currentLong = timeToInt(pos)
-        val videoLenLong = timeToInt(video_len)
-        val opStartLong = timeToInt(op_start)
-        val opEndLong = timeToInt(op_end)
 
-        // 사용자 커맨드 적용
-        if (currentLong in opStartLong..opEndLong) currentLong = opEndLong
+/**
+ * @param video_len 동영상 길이 (예: mm:ss)
+ * @param pos 기능 수행 직전 재생 위치 (예: mm:ss)
+ * @param op_start 오프닝 시작 시간 (예: mm:ss)
+ * @param op_end 오프닝 종료 시간 (예: mm:ss)
+ * @param commands 사용자 입력 목록 (prev, next)
+ */
+private fun solution(video_len: String, pos: String, op_start: String, op_end: String, commands: Array<String>): String {
+    var currentLong = timeToInt(pos)
+    val videoLenLong = timeToInt(video_len)
+    val opStartLong = timeToInt(op_start)
+    val opEndLong = timeToInt(op_end)
 
-        commands.map { comment ->
-            currentLong = when (comment) {
-                "prev" -> 0.coerceAtLeast(currentLong - 10)
-                "next" -> videoLenLong.coerceAtMost(currentLong + 10)
-                else -> currentLong
-            }
+    // 사용자 커맨드 적용
+    if (currentLong in opStartLong..opEndLong) currentLong = opEndLong
 
-            if (currentLong in opStartLong..opEndLong) currentLong = opEndLong
+    commands.map { comment ->
+        currentLong = when (comment) {
+            "prev" -> 0.coerceAtLeast(currentLong - 10)
+            "next" -> videoLenLong.coerceAtMost(currentLong + 10)
+            else -> currentLong
         }
 
-        return reverseIntToTimeString(currentLong)
+        if (currentLong in opStartLong..opEndLong) currentLong = opEndLong
     }
 
-    private fun timeToInt(time: String): Int = time.split(":").let { it.first().toInt() * 60 + it.last().toInt() }
-
-    private fun reverseIntToTimeString(time: Int): String = "${(time / 60)}".padStart(2, '0') + ":" + "${(time % 60)}".padStart(2, '0')
+    return reverseIntToTimeString(currentLong)
 }
+
+private fun timeToInt(time: String): Int = time.split(":").let { it.first().toInt() * 60 + it.last().toInt() }
+
+private fun reverseIntToTimeString(time: Int): String = "${(time / 60)}".padStart(2, '0') + ":" + "${(time % 60)}".padStart(2, '0')
 
 private fun main() {
     // 13:00
-    val v1 = Solution().solution("34:33","13:00","00:55","02:55", arrayOf("next", "prev"))
+    val v1 = solution("34:33","13:00","00:55","02:55", arrayOf("next", "prev"))
     println(v1)
 
-    val v2 = Solution().solution("10:55","00:05","00:15","06:55", arrayOf("prev", "next", "next"))
+    val v2 = solution("10:55","00:05","00:15","06:55", arrayOf("prev", "next", "next"))
     println(v2)
 
-    val v3 = Solution().solution("07:22", "04:05","00:15","04:07", arrayOf("next"))
+    val v3 = solution("07:22", "04:05","00:15","04:07", arrayOf("next"))
     println(v3)
 }

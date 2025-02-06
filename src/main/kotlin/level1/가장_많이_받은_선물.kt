@@ -6,7 +6,7 @@ package level1
  * https://school.programmers.co.kr/learn/courses/30/lessons/258712
  */
 fun main() {
-    val answer = solution(arrayOf("muzi", "ryan", "frodo", "neo"), arrayOf("muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"))
+    val answer = 가장많이받은선물(arrayOf("muzi", "ryan", "frodo", "neo"), arrayOf("muzi frodo", "muzi frodo", "ryan muzi", "ryan muzi", "ryan muzi", "frodo muzi", "frodo ryan", "neo muzi"))
     print("answer: $answer")
 }
 
@@ -16,7 +16,7 @@ data class Friend (
     var giftIndex: Int = 0
 )
 
-fun solution(friends: Array<String>, gifts: Array<String>): Int {
+fun 가장많이받은선물(friends: Array<String>, gifts: Array<String>): Int {
     var answer: Int = 0
 
     // 계산 목적

@@ -2,7 +2,6 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/Programmers_Problems.iml" filepath="$PROJECT_DIR$/Programmers_Problems.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Programmers_Problems.main.iml" filepath="$PROJECT_DIR$/.idea/modules/Programmers_Problems.main.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/Programmers_Problems.test.iml" filepath="$PROJECT_DIR$/.idea/modules/Programmers_Problems.test.iml" />
     </modules>

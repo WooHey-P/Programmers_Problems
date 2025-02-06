@@ -1,5 +1,8 @@
 package level1
 
+/**
+ * https://school.programmers.co.kr/learn/courses/30/lessons/178871
+ */
 private class 달리기경주 {
     fun 달리기경주(players: Array<String>, callings: Array<String>): Array<String> {
 

@@ -4,35 +4,41 @@ class 대충만든자판 {
     fun 대충만든자판(keymap: Array<String>, targets: Array<String>): IntArray {
         var answer: IntArray = intArrayOf()
 
-
-        var notFound = false
         targets.map { target ->
             var sum = 0
 
+            var notFound = false
             target.map { t ->
-                val findList = keymap.mapNotNull { str ->
-                    val strList = str.toList()
-                    var pos: Int? = null
-                    strList.firstOrNull { it == t }.let {
-                        pos = strList.indexOf(it)
-                    }
-                    pos
+                if (notFound) {
+                    return@map
                 }
-
-                if (findList.isEmpty()) {
+                var minIdx = 101
+                // 최소 위치의 문자열 찾기
+                keymap.forEach { key ->
+                    val idx = key.indexOf(t)
+                    if (idx != -1 && idx < minIdx) {
+                        minIdx = idx
+                    }
+                }
+                if (minIdx == 101) {
                     notFound = true
+                    sum = -1
                 } else {
-                    sum += findList.minOf{it}
+                    sum += minIdx + 1
                 }
             }
 
-            answer + sum
+            if (sum != 0) {
+                answer += sum
+            }
         }
 
-        if (notFound) {
-            return intArrayOf(-1)
-        } else {
-            return answer
-        }
+        return answer
     }
+}
+
+fun main() {
+    val v1 = 대충만든자판().대충만든자판(arrayOf("ABACD", "BCEFD"),arrayOf("ABCD","AABB"))
+    val v2 = 대충만든자판().대충만든자판(arrayOf("AGZ"),arrayOf("YGZ", "BSSS"))
+    println(v1.contentToString())
 }

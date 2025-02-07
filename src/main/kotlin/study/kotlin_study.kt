@@ -15,6 +15,9 @@ private fun 자료구조() {
     val iArr1 = intArrayOf()
     val iArr2 = intArrayOf(1, 2)
 
+    iArr1 + 1
+    iArr1 + 2
+    print(iArr1.contentToString())
 
     // 리스트 (불변) 수정 불가
     val list1 = listOf<Int>()

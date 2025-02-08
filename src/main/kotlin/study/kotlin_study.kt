@@ -58,18 +58,5 @@ private fun 자료구조() {
 
 
     println(testList.slice(2..7.let{ if (it > testList.lastIndex) testList.lastIndex else it }))
-
-    val queue1: java.util.Queue<Int> = java.util.LinkedList()
-    val queue2: java.util.LinkedList<Int> = java.util.LinkedList()
-
-
-    val plans: Array<Array<String>> = arrayOf()
-    val v1 = plans.map {
-        val name = it[0] // 2..10
-        val start = it[1] // 00:00 ~ 23:59
-        val playtime = it[2] // 1..100
-
-        Triple(name, start, playtime)
-    }.sortedBy{it.second}
 }
 

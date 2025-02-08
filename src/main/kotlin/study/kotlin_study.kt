@@ -67,6 +67,15 @@ private fun 자료구조() {
 
     var ia = intArrayOf(1,2,3)
 
-    
+    val book_time: Array<Array<String>> = arrayOf(arrayOf<String>())
+
+    book_time.map { in_out ->
+        val (inTime, outTime) = in_out.map{it.toIdx()}
+    }
+
+
+    val v1 = ArrayDeque<String>()
+    val v2 = mutableListOf<String>()
 }
 
+fun String.toIdx(): Int = this.split(":").let{ (it[0].toInt() * 60 + it[1].toInt()) / 10 }

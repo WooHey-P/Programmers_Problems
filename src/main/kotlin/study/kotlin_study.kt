@@ -58,5 +58,15 @@ private fun 자료구조() {
 
 
     println(testList.slice(2..7.let{ if (it > testList.lastIndex) testList.lastIndex else it }))
+
+    val sortedList = arrayOf(listOf(1, 2), listOf(1, 2))
+        .sortedWith(compareBy<List<Int>> { it[0] }.thenByDescending { it[1] })
+
+    val sortedList2 = arrayOf(listOf(1, 2), listOf(1, 2))
+        .sortedWith(compareBy<List<Int>> { it[0] }.thenByDescending { it[1] })
+
+    var ia = intArrayOf(1,2,3)
+
+    
 }
 
